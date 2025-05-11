@@ -12,10 +12,10 @@ repository = "https://github.com/paradigmxyz/tabl"
 exclude = [".github/"]
 
 [workspace.dependencies]
-thiserror = "1.0"
-tokio = { version = "1.32.0", features = ["full"] }
-arrow = "52.0.0"
-polars = { version = "0.41.3", features = [
+thiserror = "2.0"
+tokio = { version = "1.45.0", features = ["full"] }
+arrow = "55.0.0"
+polars = { version = "0.43.1", features = [
     "json",
     "parquet",
     "lazy",
@@ -31,3 +31,8 @@ polars = { version = "0.41.3", features = [
     "streaming",
     "timezones",
 ] }
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"

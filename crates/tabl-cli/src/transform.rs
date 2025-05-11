@@ -140,7 +140,7 @@ pub(crate) fn apply_filter(
 ) -> Result<LazyFrame, TablCliError> {
     let schema = lf
         .clone()
-        .schema()
+        .collect_schema()
         .map_err(|e| TablCliError::Error(e.to_string()))?;
 
     match filters {
@@ -358,7 +358,9 @@ pub(crate) fn apply_drop(
 ) -> Result<LazyFrame, TablCliError> {
     match columns {
         None => Ok(lf),
-        Some(columns) => Ok(lf.drop(columns)),
+        Some(columns) => {
+            Ok(lf.drop(columns.iter().map(|s| s.as_str()).collect::<Vec<&str>>()))
+        }
     }
 }
 
@@ -390,7 +392,7 @@ pub(crate) fn apply_set(lf: LazyFrame, set: Option<&[String]>) -> Result<LazyFra
         Some(set) => {
             let mut new_lf = lf;
             let schema = new_lf
-                .schema()
+                .collect_schema()
                 .map_err(|e| TablCliError::Error(e.to_string()))?;
 
             for s in set {
@@ -494,7 +496,7 @@ pub(crate) fn apply_nullify(
         Some(columns) => {
             let mut new_lf = lf;
             let schema = new_lf
-                .schema()
+                .collect_schema()
                 .map_err(|e| TablCliError::Error(e.to_string()))?;
 
             for column in columns.iter() {
@@ -521,7 +523,7 @@ pub(crate) fn apply_replace(
         Some(values) => {
             let mut new_lf = lf;
             let schema = new_lf
-                .schema()
+                .collect_schema()
                 .map_err(|e| TablCliError::Error(e.to_string()))?;
 
             for value in values.iter() {

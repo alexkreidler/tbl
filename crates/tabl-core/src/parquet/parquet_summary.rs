@@ -33,7 +33,7 @@ pub async fn get_parquet_schema(path: &std::path::Path) -> Result<Arc<Schema>, T
     tokio::task::spawn_blocking(move || {
         let scan_args = ScanArgsParquet::default();
         let mut lf = LazyFrame::scan_parquet(path, scan_args)?;
-        let schema = lf.schema()?;
+        let schema = lf.collect_schema()?;
         Ok(schema)
     })
     .await?

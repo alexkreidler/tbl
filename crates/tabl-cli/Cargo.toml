@@ -12,7 +12,7 @@ name = "tabl"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.4.8", features = ["derive"] }
+clap = { version = "4.5.38", features = ["derive"] }
 tokio = { workspace = true }
 thiserror = { workspace = true }
 tabl-core = { version = "0.1.0", path = "../tabl-core" }
@@ -21,10 +21,10 @@ polars = { workspace = true }
 toolstr = "0.1.5"
 toolstr_colored = "2.1.1"
 inquire = "0.7.5"
-anstyle = "1.0.7"
-color-print = "0.3.6"
-chrono = "0.4.38"
+anstyle = "1.0.10"
+color-print = "0.3.7"
+chrono = "0.4.41"
 hex = "0.4.3"
 
 [build-dependencies]
-built = "0.7"
+built = "0.8"

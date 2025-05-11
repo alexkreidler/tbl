@@ -227,7 +227,7 @@ fn print_schemas(
 fn print_schema(schema: Arc<Schema>, summary: &TabularSummary) -> Result<(), TablCliError> {
     // gather data
     let names: Vec<String> = schema.iter_names().map(|x| x.to_string()).collect();
-    let dtypes: Vec<String> = schema.iter_dtypes().map(|x| x.to_string()).collect();
+    let dtypes: Vec<String> = schema.iter_names_and_dtypes().map(|x| x.1.to_string()).collect();
     let uncompressed: Vec<_> = summary
         .columns
         .iter()
