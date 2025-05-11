@@ -3128,7 +3128,7 @@ dependencies = [
 
 [[package]]
 name = "tabl-cli"
-version = "0.1.1"
+version = "0.2.0"
 dependencies = [
  "anstyle",
  "built",
@@ -3148,7 +3148,7 @@ dependencies = [
 
 [[package]]
 name = "tabl-core"
-version = "0.1.1"
+version = "0.2.0"
 dependencies = [
  "arrow",
  "colored",
