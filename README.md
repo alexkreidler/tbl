@@ -1,7 +1,7 @@
 
 # tabl ┳━┳
 
-`tabl` is a cli tool for reading and editing parquet files
+`tabl` is a cli tool for reading and editing parquet files. This fork has updated dependencies, an easy installer, and is renamed to fix a [name collision](https://github.com/paradigmxyz/tbl/issues/3) that breaks the `man` command on Linux.
 
 #### Goals of `tabl`:
 - be a swiss army knife for reading/editing parquet (kind of like [`jq`](https://github.com/jqlang/jq) is for JSON)
